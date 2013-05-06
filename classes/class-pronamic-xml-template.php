@@ -34,6 +34,8 @@ class Pronamic_XML_Template {
         
         $this->xml = simplexml_load_file( $file );
         
+        $this->set_mail_template( $this->xml->mail_template );
+        
         
     }
     

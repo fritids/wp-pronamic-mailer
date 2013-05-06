@@ -1,12 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<mail_template>ftp_mail.php</mail_template>
-<replacements>
-	<replacement>
-		<needle>ftpuser</needle>
-		<value location='postmeta'>_ftp_user</value>
-	</replacement>
-	<replacement>
-		<needle>ftppass</needle>
-		<value location="postmeta">_ftp_pass</value>
-	</replacement>
-</replacements>
+<configuration>
+	<mail_template>ftp_mail</mail_template>
+	<replacements>
+		<replacement>
+			<needle>ftpuser</needle>
+			<value location='postmeta'>_ftp_user</value>
+		</replacement>
+		<replacement>
+			<needle>ftppass</needle>
+			<value location="postmeta">_ftp_pass</value>
+		</replacement>
+	</replacements>
+</configuration>

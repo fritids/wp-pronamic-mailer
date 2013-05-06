@@ -16,7 +16,9 @@
                 </form>
             </div>
             <div class="pronamic-mail-builder-preview jMailPreview">
-                
+                <?php if ( ! empty( $example_content ) ) : ?>
+                    <?php echo $example_content; ?>
+                <?php endif; ?>
             </div>
         </div>
         

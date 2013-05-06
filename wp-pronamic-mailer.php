@@ -85,8 +85,26 @@ if ( ! class_exists( 'WP_Pronamic_Mailer' ) ) :
         
         public function pronamic_mail_builder_page() {
             
+            // Get all Mail Templates
+            $mail_templates = Pronamic_Mail_Template_Factory::get_all_mail_templates();
+            
+            // Get all xml templates
             $xml_templates = Pronamic_Mail_Template_Factory::get_all_xml_templates();
             
+            if ( filter_input( INPUT_GET, 'xml_template', FILTER_SANITIZE_STRING ) ) {
+                
+                // XML Template
+                $xml_template = new Pronamic_XML_Template();
+                $xml_template->load( $_GET['xml_template'] );
+                
+                // Make a new mail view
+                $view = new Pronamic_Mail_View( $xml_template );
+                
+                $example_content = $view->get_content();
+            }
+            
+            
+            // Get the page
             include( dirname( __FILE__ ) . '/views/pronamic_mail_builder_page.php' );
             
         }

@@ -1,4 +1,4 @@
-<?php include( '../mail_shared/email-header.php' ); ?>
+<?php wp_pronamic_mailer_get_shared_header(); ?>
 <table border="0" cellpadding="0" cellspacing="0" width="600" id="templateBody">
     <tr>
         <td valign="top" class="bodyContent">
@@ -19,4 +19,4 @@
         </td>
     </tr>
 </table>
-<?php include( '../mail_shared/email-footer.php' ); ?>
+<?php wp_pronamic_mailer_get_shared_footer() ?>

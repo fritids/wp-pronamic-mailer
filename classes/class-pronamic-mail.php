@@ -29,7 +29,7 @@ class Pronamic_Mail {
         if ( empty( $this->view ) )
             return false;
         
-        $this->view->prepare();
+        $this->view->prepare( $id );
     }
     
     /**

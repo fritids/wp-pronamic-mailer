@@ -10,7 +10,7 @@
 /** ========================= **/
 .pronamic-mail-builder-preview-holder {
 	float:left;
-	width:555px;
+	width:620px;
 }
 
 	.pronamic-mail-builder-target-panel {
@@ -28,7 +28,7 @@
 /** == Controls == **/
 /** ========================= **/
 .pronamic-mail-builder-controls-holder {
-	width:380px;
+	width:315px;
 	float:right;
 	padding:0 10px;
 }

@@ -37,14 +37,15 @@ if ( ! class_exists( 'WP_Pronamic_Mailer' ) ) :
     {
 
         public function __construct() {
-            add_action( 'init', array( $this, 'init' ) );
+            add_action( 'admin_init', array( $this, 'includes' ) );
+            add_action( 'admin_init', array( $this, 'iframe_example_mail' ) );
             
             add_action( 'admin_menu', array( $this, 'menu_items' ) );
             add_action( 'admin_enqueue_scripts', array( $this, 'admin_scripts' ) );
             
             spl_autoload_register( array( $this, 'autoload' ) );
             
-            add_action( 'load-toplevel_page_pronamic-mailer', array( $this, 'includes' ) );
+            
         }
 
         public function autoload( $class_name ) {
@@ -55,10 +56,6 @@ if ( ! class_exists( 'WP_Pronamic_Mailer' ) ) :
 
             if ( file_exists( $class_file ) )
                 include_once( $class_file );
-        }
-
-        public function init() {
-            
         }
         
         public function includes() {
@@ -91,7 +88,16 @@ if ( ! class_exists( 'WP_Pronamic_Mailer' ) ) :
             // Get all xml templates
             $xml_templates = Pronamic_Mail_Template_Factory::get_all_xml_templates();
             
-            if ( filter_input( INPUT_GET, 'xml_template', FILTER_SANITIZE_STRING ) ) {
+           
+            
+            
+            // Get the page
+            include( dirname( __FILE__ ) . '/views/pronamic_mail_builder_page.php' );
+            
+        }
+        
+        public function iframe_example_mail() {
+             if ( filter_input( INPUT_GET, 'xml_template', FILTER_SANITIZE_STRING ) && filter_input( INPUT_GET, 'iframe_view', FILTER_VALIDATE_BOOLEAN ) ) {
                 
                 // XML Template
                 $xml_template = new Pronamic_XML_Template();
@@ -100,13 +106,9 @@ if ( ! class_exists( 'WP_Pronamic_Mailer' ) ) :
                 // Make a new mail view
                 $view = new Pronamic_Mail_View( $xml_template );
                 
-                $example_content = $view->get_content();
+                echo $view->get_content();
+                exit;
             }
-            
-            
-            // Get the page
-            include( dirname( __FILE__ ) . '/views/pronamic_mail_builder_page.php' );
-            
         }
 
     }

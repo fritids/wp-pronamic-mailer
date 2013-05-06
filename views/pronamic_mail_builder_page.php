@@ -16,9 +16,7 @@
                 </form>
             </div>
             <div class="pronamic-mail-builder-preview jMailPreview">
-                <?php if ( ! empty( $example_content ) ) : ?>
-                    <?php echo $example_content; ?>
-                <?php endif; ?>
+                <?php echo wp_pronamic_mailer_iframe_mail_example(); ?>
             </div>
         </div>
         

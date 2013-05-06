@@ -43,6 +43,8 @@ if ( ! class_exists( 'WP_Pronamic_Mailer' ) ) :
             add_action( 'admin_enqueue_scripts', array( $this, 'admin_scripts' ) );
             
             spl_autoload_register( array( $this, 'autoload' ) );
+            
+            add_action( 'load-toplevel_page_pronamic-mailer', array( $this, 'includes' ) );
         }
 
         public function autoload( $class_name ) {
@@ -57,6 +59,10 @@ if ( ! class_exists( 'WP_Pronamic_Mailer' ) ) :
 
         public function init() {
             
+        }
+        
+        public function includes() {
+            include( WP_PRONAMIC_MAILER_DIR . '/includes/functions-common.php' );
         }
 
         public function menu_items() {

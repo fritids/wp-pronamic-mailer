@@ -8,7 +8,8 @@
         
         <div class="pronamic-mail-builder-preview-holder">
             <div class="pronamic-mail-builder-target-panel">
-                <form action="" method="GET">
+                <form action="<?php echo wp_pronamic_mail_builder_url() ;?>" method="GET">
+                    <input type="hidden" name="page" value="pronamic-mailer"/>
                     <label><?php _e( 'Example Query String', 'wp-pronamic-mailer' ); ?></label>
                     <input type="text" name="query_string" value=""/>
                     <button class="button" type="submit"><?php _e( 'Load', 'wp-pronamic-mailer' ); ?></button>
@@ -24,7 +25,8 @@
             <div class="pronamic-mail-template-loader">
                 <label><?php _e( 'Load or Make Template', 'wp-pronamic-mailer' ); ?></label>
                 <p>
-                <form action="" method="GET">
+                <form action="<?php echo wp_pronamic_mail_builder_url(); ?>" method="GET">
+                    <input type="hidden" name="page" value="pronamic-mailer"/>
                     <select name="xml_template" class="jXMLTemplate">
                         <?php foreach ( $xml_templates as $xml_template ) : ?>
                             <option value="<?php echo $xml_template; ?>"><?php echo $xml_template; ?></option>

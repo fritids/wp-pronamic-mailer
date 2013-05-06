@@ -8,23 +8,46 @@ class Pronamic_Mail {
     
     private $headers = array();
     
-    private $subject;
+    private $to;
     
-    private $content;
-
-    private $recipients = array();
+    /**
+     * Holds the Pronamic_Mail_View class chosen
+     * for this mail.
+     * 
+     * @var \Pronamic_Mail_View
+     */
+    private $view;
+    
+    private $sent = false;
     
     public function __construct() {
         
-        // Adds a default replacement
-        $this->replacements[ '{{sitename}}' ] = get_bloginfo( 'name' );
     }
     
+    public function send() {
+        // Require a view to be set, before preparing
+        if ( empty( $this->view ) )
+            return false;
+        
+        $this->view->prepare();
+    }
+    
+    /**
+     * The associated post/page/whatever ID for this mail.
+     * 
+     * Will be used to get the settings that will make the values
+     * of the replacement needles in the view
+     * 
+     * @since 0.0.1
+     * 
+     * @access public
+     * @param int $id
+     * @return \Pronamic_Mail
+     */
     public function set_id( $id ) {
         $this->id = $id;
         return $this;
     }
-   
     
     /**
      * Used to add a recipient to this mail.
@@ -36,14 +59,26 @@ class Pronamic_Mail {
      * @param string $recipient_name
      * @return \Pronamic_Mail
      */
-    public function add_recipient( $recipient_mail, $recipient_name ) {
-        $this->recipients[$recipient_mail] = $recipient_name;
+    public function set_to( $to ) {
+        $this->to = $to;
         return $this;
     }
     
-    public function remove_recipient( $recipient_mail ) {
-        if ( array_key_exists( $recipient_mail, $this->recipients ) )
-            unset( $this->recipients[ $recipient_mail ] );
+    /**
+     * Sets the mail view for this mail.  Will use 
+     * the linked xml config to the view, to get
+     * all the replacement needles and location for 
+     * values
+     * 
+     * @since 0.0.1
+     * 
+     * @access public
+     * @param Pronamic_Mail_View $view
+     * @return \Pronamic_Mail
+     */
+    public function set_view( Pronamic_Mail_View $view ) {
+        $this->view = $view;
+        return $this;
     }
     
     /**

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<view>ftp_email.php</view>
+<mail_template>ftp_mail.php</mail_template>
 <replacements>
 	<replacement>
 		<needle>ftpuser</needle>
@@ -10,17 +10,3 @@
 		<value location="postmeta">_ftp_pass</value>
 	</replacement>
 </replacements>
-
-
-
-
-
-
-
-
-
-
-
-Hello {{name}}
-
-Your subscription is going to end in {{date}} 

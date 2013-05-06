@@ -1,0 +1,40 @@
+/** ========================= **/
+/** == Mail Builder Wrapper == **/
+/** ========================= **/
+.pronamic-mail-builder-holder {
+	width:960px;
+}
+
+/** ========================= **/
+/** == Preview Section == **/
+/** ========================= **/
+.pronamic-mail-builder-preview-holder {
+	float:left;
+	width:555px;
+}
+
+	.pronamic-mail-builder-target-panel {
+		margin-bottom:10px;
+		
+	}
+
+	.pronamic-mail-builder-preview {
+		border:1px solid #ccc;
+		width:100%;
+		height:700px;
+	}
+
+/** ========================= **/
+/** == Controls == **/
+/** ========================= **/
+.pronamic-mail-builder-controls-holder {
+	width:380px;
+	float:right;
+	padding:0 10px;
+}
+	
+	.pronamic-mail-template-loader {
+		
+	}
+	
+	

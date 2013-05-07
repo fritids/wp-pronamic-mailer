@@ -22,5 +22,6 @@ function wp_pronamic_mailer_get_shared_footer() {
 }
 
 function wp_pronamic_mailer_iframe_mail_example() {
-    echo '<iframe src="' . add_query_arg( array( 'xml_template' => $_GET['xml_template'], 'iframe_view' => true ), admin_url() ) . '" width="100%" height="100%"></iframe>';
+	if ( isset( $_GET['xml_template'] ) )
+		echo '<iframe src="' . add_query_arg( array( 'xml_template' => $_GET['xml_template'], 'iframe_view' => true ), admin_url() ) . '" width="100%" height="100%"></iframe>';
 }
